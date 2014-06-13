@@ -29,7 +29,7 @@ In fact, `idml` is `zip` file. You can `unzip` `idml` file. So you can find `xml
 
 1. Unzip `idml` file(`unzip idml-file.idml`).
 2. `Stories` folder contains the text that is `xml`. Run the following script.
-3. `for f in Stories / *; do perl idml2html.pl "$ f"; printf "\n\n\n"; done> result.html`
+3. `for f in Stories/* ; do idml2html.pl "$f" ; printf "\n\n------\n\n" ; done > result.html`
 
 
 ### Korean
@@ -40,4 +40,4 @@ In fact, `idml` is `zip` file. You can `unzip` `idml` file. So you can find `xml
 
 1. `idml` 파일 압축 푼다 (`unzip idml-file.idml`)
 2. `Stories` 폴더 안에 `xml`로 본문이 들어 있다. 아래 스크립트를 실행한다.
-3. `for f in Stories/* ; do perl idml2html.pl "$f" ; printf "\n\n\n" ; done > result.html`
+3. `for f in Stories/* ; do idml2html.pl "$f" ; printf "\n\n------\n\n" ; done > result.html`
