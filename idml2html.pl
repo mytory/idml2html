@@ -24,6 +24,7 @@ my $elt = $twig->parsefile($ARGV[0])->root;
 {	
 	my %sty2tag = (	
 		'ParagraphStyle/기사본문'          => { 'tag_name' => 'p' },
+		'ParagraphStyle/Normal'          => { 'tag_name' => 'p' },
 		'ParagraphStyle/소제목'            => { 'tag_name' => 'h3' },
 		'ParagraphStyle/필자(일반)'        => { 'tag_name' => 'p' },
 		'ParagraphStyle/필자(상단)'        => { 'tag_name' => 'p' },
@@ -40,6 +41,7 @@ my $elt = $twig->parsefile($ARGV[0])->root;
 		'ParagraphStyle/제목%3a└ 명조제목/21pt/경계' => { 'tag_name' => 'h1' },
 		'ParagraphStyle/누구말일까요본문'   => { 'tag_name' => 'p' },
 		'ParagraphStyle/특수본문%3a누구말일까요본문' => {'tag_name' => 'p' },
+		'ParagraphStyle/특수본문%3a소제목 (박스)' => {'tag_name' => 'h3'},
 		'ParagraphStyle/편집자주(앞)'       => { 'tag_name' => 'p' },
 		'ParagraphStyle/편집자주(뒤)'       => { 'tag_name' => 'p' },
 		'ParagraphStyle/인터뷰질문'         => { 'tag_name' => 'p' },
@@ -121,7 +123,7 @@ my $elt = $twig->parsefile($ARGV[0])->root;
 
 					# end previous states
 					$buff .= closeTag($cStat);
-					$buff .= closeTag($pStat)."\n";
+					$buff .= closeTag($pStat)."\n" . "\n";
 
 					flush();
 					unset_has_content();
@@ -146,7 +148,7 @@ my $elt = $twig->parsefile($ARGV[0])->root;
 			when ('Br') {
 				
 				$buff .= closeTag($cStat);
-				$buff .= closeTag($pStat)."\n";
+				$buff .= closeTag($pStat)."\n". "\n";
 				flush();
 				unset_has_content();
 
