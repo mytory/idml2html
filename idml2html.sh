@@ -4,4 +4,6 @@ if [ ! $2 ]; then
 fi
 
 unzip "$1"
-for f in Stories/* ; do idml2html.pl "$f" ; printf "\n\n------\n\n" ; done > "$2"
+
+for f in Stories/* ; do idml2html.pl "$f" ; printf "\n\n------\n\n" ; done >> "$2"
+
