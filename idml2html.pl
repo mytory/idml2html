@@ -3,6 +3,7 @@
 use v5.14;
 use strict;
 use warnings;
+no warnings 'experimental';
 use feature qw/ say switch /;
 use XML::Twig;
 use Data::Dumper;
